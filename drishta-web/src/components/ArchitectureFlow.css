@@ -1,0 +1,88 @@
+.arch-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 40px 0;
+  overflow-x: auto;
+}
+
+.arch-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.arch-node-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--border-light);
+  background: var(--bg-card);
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.arch-node:hover .arch-node-circle {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 20px var(--accent-blue-glow);
+}
+
+.arch-node-circle svg {
+  color: var(--accent-blue);
+}
+
+.arch-node-label {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  text-align: center;
+  max-width: 90px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.arch-connector {
+  width: 60px;
+  height: 1.5px;
+  background: linear-gradient(90deg, var(--border-light), var(--accent-blue), var(--border-light));
+  position: relative;
+  flex-shrink: 0;
+}
+
+.arch-connector::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid var(--accent-blue);
+  border-bottom: 1.5px solid var(--accent-blue);
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+@media (max-width: 700px) {
+  .arch-flow {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .arch-connector {
+    width: 1.5px;
+    height: 40px;
+    background: linear-gradient(180deg, var(--border-light), var(--accent-blue), var(--border-light));
+  }
+
+  .arch-connector::after {
+    right: 50%;
+    top: auto;
+    bottom: -3px;
+    transform: translateX(50%) rotate(45deg);
+  }
+}

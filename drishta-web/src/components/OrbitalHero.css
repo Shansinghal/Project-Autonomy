@@ -1,0 +1,209 @@
+.orbital-container {
+  position: relative;
+  width: 520px;
+  height: 520px;
+  flex-shrink: 0;
+}
+
+.orbital-scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Concentric ellipses */
+.orbital-ring {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-25deg);
+}
+
+.orbital-ring-1 {
+  width: 300px;
+  height: 200px;
+}
+
+.orbital-ring-2 {
+  width: 420px;
+  height: 280px;
+}
+
+.orbital-ring-3 {
+  width: 510px;
+  height: 350px;
+}
+
+/* Central core */
+.orbital-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 28px;
+}
+
+.orbital-core-shape {
+  width: 28px;
+  height: 28px;
+  background: var(--text-primary);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  animation: core-pulse 3s ease-in-out infinite;
+}
+
+.orbital-core-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+@keyframes core-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+}
+
+/* Orbiting nodes */
+.orbital-node-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+}
+
+.orbital-node-wrapper-1 {
+  animation: orbit-1 16s linear infinite;
+}
+
+.orbital-node-wrapper-2 {
+  animation: orbit-2 22s linear infinite;
+}
+
+.orbital-node-wrapper-3 {
+  animation: orbit-3 28s linear infinite;
+}
+
+.orbital-node {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.orbital-node-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-primary);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+  flex-shrink: 0;
+}
+
+.orbital-node-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+/* Elliptical orbit keyframes — nodes follow the tilted ellipse paths */
+@keyframes orbit-1 {
+  0% { transform: rotate(-25deg) translate(150px, 0) rotate(25deg); }
+  25% { transform: rotate(-25deg) translate(0, -100px) rotate(25deg); }
+  50% { transform: rotate(-25deg) translate(-150px, 0) rotate(25deg); }
+  75% { transform: rotate(-25deg) translate(0, 100px) rotate(25deg); }
+  100% { transform: rotate(-25deg) translate(150px, 0) rotate(25deg); }
+}
+
+@keyframes orbit-2 {
+  0% { transform: rotate(-25deg) translate(0, 140px) rotate(25deg); }
+  25% { transform: rotate(-25deg) translate(210px, 0) rotate(25deg); }
+  50% { transform: rotate(-25deg) translate(0, -140px) rotate(25deg); }
+  75% { transform: rotate(-25deg) translate(-210px, 0) rotate(25deg); }
+  100% { transform: rotate(-25deg) translate(0, 140px) rotate(25deg); }
+}
+
+@keyframes orbit-3 {
+  0% { transform: rotate(-25deg) translate(-255px, 0) rotate(25deg); }
+  25% { transform: rotate(-25deg) translate(0, 175px) rotate(25deg); }
+  50% { transform: rotate(-25deg) translate(255px, 0) rotate(25deg); }
+  75% { transform: rotate(-25deg) translate(0, -175px) rotate(25deg); }
+  100% { transform: rotate(-25deg) translate(-255px, 0) rotate(25deg); }
+}
+
+/* Decorative crosses */
+.orbital-cross {
+  position: absolute;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.15);
+  font-weight: 300;
+  user-select: none;
+  animation: cross-twinkle 4s ease-in-out infinite;
+}
+
+.orbital-cross:nth-child(odd) {
+  animation-delay: -2s;
+}
+
+@keyframes cross-twinkle {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.35; }
+}
+
+@media (max-width: 900px) {
+  .orbital-container {
+    width: 360px;
+    height: 360px;
+  }
+
+  .orbital-ring-1 { width: 200px; height: 140px; }
+  .orbital-ring-2 { width: 290px; height: 200px; }
+  .orbital-ring-3 { width: 350px; height: 250px; }
+
+  @keyframes orbit-1 {
+    0% { transform: rotate(-25deg) translate(100px, 0) rotate(25deg); }
+    25% { transform: rotate(-25deg) translate(0, -70px) rotate(25deg); }
+    50% { transform: rotate(-25deg) translate(-100px, 0) rotate(25deg); }
+    75% { transform: rotate(-25deg) translate(0, 70px) rotate(25deg); }
+    100% { transform: rotate(-25deg) translate(100px, 0) rotate(25deg); }
+  }
+
+  @keyframes orbit-2 {
+    0% { transform: rotate(-25deg) translate(0, 100px) rotate(25deg); }
+    25% { transform: rotate(-25deg) translate(145px, 0) rotate(25deg); }
+    50% { transform: rotate(-25deg) translate(0, -100px) rotate(25deg); }
+    75% { transform: rotate(-25deg) translate(-145px, 0) rotate(25deg); }
+    100% { transform: rotate(-25deg) translate(0, 100px) rotate(25deg); }
+  }
+
+  @keyframes orbit-3 {
+    0% { transform: rotate(-25deg) translate(-175px, 0) rotate(25deg); }
+    25% { transform: rotate(-25deg) translate(0, 125px) rotate(25deg); }
+    50% { transform: rotate(-25deg) translate(175px, 0) rotate(25deg); }
+    75% { transform: rotate(-25deg) translate(0, -125px) rotate(25deg); }
+    100% { transform: rotate(-25deg) translate(-175px, 0) rotate(25deg); }
+  }
+}
+
+@media (max-width: 600px) {
+  .orbital-container {
+    width: 280px;
+    height: 280px;
+    margin: 0 auto;
+  }
+}

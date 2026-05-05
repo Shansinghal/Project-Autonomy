@@ -1,0 +1,27 @@
+model:
+  name: "xlm-roberta-base"
+  num_labels: 4
+  max_length: 128
+  dropout: 0.3
+
+training:
+  epochs: 5
+  batch_size: 16
+  grad_accum_steps: 2
+  learning_rate: 2.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  early_stopping_patience: 2
+  fp16: true
+
+data:
+  train_split: 0.8
+  val_split: 0.1
+  test_split: 0.1
+  seed: 42
+
+labels:
+  neutral: 0
+  offensive: 1
+  hate: 2
+  threat: 3
