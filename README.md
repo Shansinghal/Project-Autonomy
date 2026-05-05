@@ -1,4 +1,4 @@
-# Project Autonomy: Multilingual Toxicity Classifier & DRISHTA Web App
+# Multilingual Toxicity Classifier
 
 Project Autonomy is an end-to-end machine learning project aimed at detecting toxic content across multiple languages, specifically targeting English, Hindi, and Hinglish. It features a robust, fine-tuned transformer model coupled with an intuitive React-based web interface named **DRISHTA**.
 
