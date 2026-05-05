@@ -2,13 +2,13 @@
 
 Project Autonomy is an end-to-end machine learning project aimed at detecting toxic content across multiple languages, specifically targeting English, Hindi, and Hinglish. It features a robust, fine-tuned transformer model coupled with an intuitive React-based web interface named **DRISHTA**.
 
-## 🌟 Project Overview
+## Project Overview
 
 The project is split into two primary components:
 1. **Toxicity Classifier (`toxicity-classifier/`)**: A production-ready machine learning pipeline for training and evaluating a multilingual toxicity classification model using `xlm-roberta-base`. It includes data preprocessing, PyTorch training loops with mixed-precision, and SHAP-based explainability modules.
 2. **DRISHTA Web App (`drishta-web/`)**: A dark-themed, high-performance React application that serves as the user-facing frontend. It includes a Home page, an interactive Playground to test the model in real-time, and an About page detailing the project's background and metrics.
 
-## 📊 Datasets
+## Datasets
 
 The model was trained on a heavily curated dataset comprising multiple sources to ensure robustness and multilingual support:
 
@@ -27,7 +27,7 @@ The unified dataset maps diverse labels into 4 distinct categories: `neutral` (0
 - **Validation Split**: 17,256 samples
 - **Test Split**: 17,256 samples
 
-## 🧠 Model Architecture & Training
+## Model Architecture & Training
 
 The core of the system is the **`xlm-roberta-base`** model, chosen for its exceptional cross-lingual capabilities.
 
@@ -37,7 +37,7 @@ The core of the system is the **`xlm-roberta-base`** model, chosen for its excep
 - **Training Setup**: PyTorch with mixed-precision (FP16), AdamW optimizer, and gradient accumulation.
 - **Explainability**: Integrated SHAP (SHapley Additive exPlanations) and custom Attention-based visualizations to highlight toxic spans within the input text. The model provides a confidence score alongside probabilities for each category (`neutral`, `offensive`, `hate`, `threat`), allowing granular insight into its decision-making process.
 
-## 📈 Evaluation Metrics
+## Evaluation Metrics
 
 The model was evaluated on the unseen test set (17,256 samples) and achieved the following performance metrics:
 
@@ -46,13 +46,13 @@ The model was evaluated on the unseen test set (17,256 samples) and achieved the
 - **MCC (Matthews Correlation Coefficient)**: 0.6077
 - **ROC-AUC (Macro)**: 95.98% (0.9598)
 
-## 💻 Tech Stack
+## Tech Stack
 
 - **Machine Learning**: PyTorch, Transformers (Hugging Face), scikit-learn, SHAP, pandas, numpy
 - **Web Development**: React, Vite, CSS (Modern dark-mode UI with glassmorphism)
 - **Environment**: Google Colab (for GPU acceleration), Node.js
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js (for the frontend)
